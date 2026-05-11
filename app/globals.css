@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Navy palette */
+  --navy: #0a1628;
+  --navy-2: #0d1f38;
+  --navy-3: #112244;
+  
+  /* Accent colors */
+  --green: #6ec72d;
+  --green-2: #8fd94a;
+  --green-dim: rgba(110, 199, 45, 0.15);
+  --blue: #1b7fe8;
+  --blue-2: #2196f3;
+  --blue-dim: rgba(27, 127, 232, 0.15);
+  
+  /* White variants */
+  --white: #ffffff;
+  --white-dim: rgba(255, 255, 255, 0.65);
+  --white-faint: rgba(255, 255, 255, 0.1);
+  
+  /* Design tokens mapped to theme */
+  --background: var(--navy);
+  --foreground: var(--white);
+  --muted-foreground: var(--white-dim);
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: var(--green);
+  --primary-foreground: var(--navy);
+  --secondary: var(--blue-2);
+  --secondary-foreground: var(--white);
+  --accent: var(--navy-2);
+  --accent-foreground: var(--white);
+  --card: var(--navy-2);
+  --card-foreground: var(--white);
+  --destructive: #e74c3c;
+  
+  --radius: 0.125rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'DM Mono Fallback', monospace;
+  --font-display: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-destructive: var(--destructive);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-navy-3: var(--navy-3);
+  --color-green: var(--green);
+  --color-green-2: var(--green-2);
+  --color-green-dim: var(--green-dim);
+  --color-blue: var(--blue);
+  --color-blue-2: var(--blue-2);
+  --color-blue-dim: var(--blue-dim);
+  --color-white-dim: var(--white-dim);
+  --color-white-faint: var(--white-faint);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+  }
+  
+  .bg-gradient-cta {
+    background: linear-gradient(135deg, var(--green) 0%, #4ab518 100%);
+  }
+  
+  /* Custom container widths */
+  .container-narrow {
+    @apply mx-auto px-6 max-w-[820px];
+  }
+  
+  .container-wide {
+    @apply mx-auto px-6 max-w-[1100px];
+  }
+}
+
+/* Animation keyframes */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes meter-fill {
+  from { width: 0; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.8s infinite;
+}
+
+.animate-blink {
+  animation: blink 1.5s infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-meter-fill {
+  animation: meter-fill 2s ease-out;
+}
