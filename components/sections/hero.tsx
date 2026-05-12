@@ -123,7 +123,7 @@ export function Hero() {
             <UrgencyBox />
 
             <div className="flex flex-wrap items-center gap-4">
-              <CTAButton href="#offer">I Want In — ₦15,000</CTAButton>
+              <CTAButton href="#offer">I Want It — ₦15,000</CTAButton>
               <SecondaryLink href="#problem">Show me more ↓</SecondaryLink>
             </div>
           </div>
@@ -132,16 +132,17 @@ export function Hero() {
           <div className="order-first text-center md:order-last">
             <div className="relative mx-auto max-w-[400px]">
               <div className="aspect-[4/5] w-full animate-float rounded bg-gradient-book shadow-book-hero">
-                <div className="flex h-full items-center justify-center p-8">
+                <div className="flex h-full items-center justify-center p-8 ">
                     {/* <div className="font-display text-6xl tracking-wider text-gradient">
                       TCSS
                     </div> */}
                     <Image
                       src="/TCSS_BookCover.png"
                       alt="The Conversion Stack System Book Cover"
-                      width={240}
-                      height={300}
-                      className="mx-auto mb-4"
+                      // width={240}
+                      // height={300}
+                      fill
+                      className="object-cover"
                     />
                     
                 </div>
