@@ -2,11 +2,12 @@ import { AlertBar } from "@/components/sections/alert-bar"
 import { Navigation } from "@/components/sections/navigation"
 import { Hero } from "@/components/sections/hero"
 import { Problem } from "@/components/sections/problem"
+import { Results } from "@/components/sections/results"
 import { Solution } from "@/components/sections/solution"
 import { Layers } from "@/components/sections/layers"
 import { Transformation } from "@/components/sections/transformation"
 import { Who } from "@/components/sections/who"
-import { Testimonials } from "@/components/sections/testimonials"
+import { BookStrip } from "@/components/sections/book-strip"
 import { Offer } from "@/components/sections/offer"
 import { FAQ } from "@/components/sections/faq"
 import { FinalCTA } from "@/components/sections/final-cta"
@@ -21,11 +22,12 @@ export default function TCSSLandingPage() {
       <main>
         <Hero />
         <Problem />
+        <Results />
         <Solution />
         <Layers />
         <Transformation />
         <Who />
-        <Testimonials />
+        <BookStrip />
         <Offer />
         <FAQ />
         <FinalCTA />

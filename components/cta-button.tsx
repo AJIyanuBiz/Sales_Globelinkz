@@ -19,9 +19,9 @@ export function CTAButton({
 
   const variants = {
     primary:
-      "px-10 py-[18px] text-[0.78rem] tracking-[0.12em] shadow-[0_4px_24px_rgba(110,199,45,0.35)] hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(110,199,45,0.5)]",
+      "px-10 py-[18px] text-[0.78rem] tracking-[0.12em] shadow-cta hover:-translate-y-0.5 hover:shadow-cta-hover",
     "primary-lg":
-      "px-14 py-[22px] text-[0.85rem] tracking-[0.12em] shadow-[0_4px_32px_rgba(110,199,45,0.4)] hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(110,199,45,0.55)]",
+      "px-14 py-[22px] text-[0.85rem] tracking-[0.12em] shadow-cta-lg hover:-translate-y-0.5 hover:shadow-cta-lg-hover",
     nav: "px-6 py-2.5 text-[0.68rem] tracking-[0.12em] hover:brightness-110",
   }
 
@@ -32,7 +32,6 @@ export function CTAButton({
   )
 }
 
-// Secondary link style for "Is this for me?" type links
 interface SecondaryLinkProps {
   href: string
   children: React.ReactNode
@@ -44,7 +43,7 @@ export function SecondaryLink({ href, children, className }: SecondaryLinkProps)
     <Link
       href={href}
       className={cn(
-        "text-[0.9rem] text-white-dim no-underline hover:text-foreground transition-colors",
+        "text-[0.9rem] text-muted-foreground no-underline hover:text-foreground transition-colors",
         className
       )}
     >

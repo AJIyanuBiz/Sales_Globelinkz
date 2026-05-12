@@ -24,9 +24,9 @@ const bebasNeue = Bebas_Neue({
 })
 
 export const metadata: Metadata = {
-  title: "TCSS — The Conversion Stack System | Stop Guessing. Start Converting.",
+  title: "TCSS — Build Facebook Ads That Make People Stop, Click and Buy",
   description:
-    "A complete 5-layer framework for building the foundation your Facebook ad campaigns need before you ever open the ads manager. Build your STACK: Story, Transform, Attract, Convert, Keep.",
+    "The Conversion Stack System: A 5-layer framework that builds what your campaigns need before you spend a single kobo on Facebook ads. Stop guessing, start converting.",
   keywords: [
     "Facebook ads",
     "conversion optimization",
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "Conversion Stack System",
     "customer story profile",
     "marketing course",
+    "Facebook advertising Nigeria",
   ],
   authors: [{ name: "Simon Peace", url: "https://globelinkz.com" }],
   creator: "GlobeLinkz",
@@ -44,16 +45,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_NG",
-    title: "TCSS — The Conversion Stack System",
+    title: "TCSS — Build Facebook Ads That Make People Stop, Click and Buy",
     description:
-      "Stop guessing. Start converting. The 5-layer framework that builds what your campaigns need before you spend a single kobo on Facebook ads.",
+      "The reason your ads aren't working has nothing to do with your ads. The 5-layer framework that builds what your campaigns need before you spend.",
     siteName: "The Conversion Stack System",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TCSS — The Conversion Stack System",
+    title: "TCSS — Build Facebook Ads That Make People Stop, Click and Buy",
     description:
-      "Stop guessing. Start converting. The 5-layer framework for Facebook ads success.",
+      "The reason your ads aren't working has nothing to do with your ads. Build your STACK today.",
   },
   robots: {
     index: true,

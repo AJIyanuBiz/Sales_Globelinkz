@@ -32,11 +32,8 @@ export function StickyCTA() {
       }`}
       aria-hidden={!isVisible}
     >
-      <CTAButton
-        href="#offer"
-        className="shadow-[0_4px_20px_rgba(110,199,45,0.5)]"
-      >
-        ⚡ 14 Spots Left — ₦15,000
+      <CTAButton href="#offer" className="shadow-cta-hover">
+        14 Spots Left — ₦15,000
       </CTAButton>
     </div>
   )

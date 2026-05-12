@@ -2,7 +2,7 @@ import { CTAButton, SecondaryLink } from "@/components/cta-button"
 
 function HeroBadge() {
   return (
-    <div className="mb-6 inline-flex items-center gap-2.5 border border-primary px-3.5 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-primary">
+    <div className="mb-5 inline-flex items-center gap-2.5 border border-primary px-3.5 py-1.5 font-mono text-[0.67rem] uppercase tracking-[0.15em] text-primary">
       <span
         className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot"
         aria-hidden="true"
@@ -14,39 +14,39 @@ function HeroBadge() {
 
 function UrgencyBox() {
   return (
-    <div className="mb-9 flex flex-wrap items-center gap-5 border border-primary/40 bg-gradient-to-br from-green-dim to-blue-dim p-6">
-      <div className="text-center">
-        <div className="font-display text-[2.8rem] leading-none text-primary">
+    <div className="mb-7 flex flex-wrap items-center gap-5 border border-primary/40 bg-primary/5 p-5">
+      <div className="min-w-[60px] text-center">
+        <div className="font-display text-[2.6rem] leading-none text-primary">
           50
         </div>
-        <div className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-muted-foreground">
+        <div className="font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground">
           Total Spots
         </div>
       </div>
       <div
-        className="h-14 w-px shrink-0 bg-border"
+        className="h-[50px] w-px shrink-0 bg-border"
         role="separator"
         aria-hidden="true"
       />
-      <div className="text-center">
-        <div className="font-display text-[2.8rem] leading-none text-secondary">
+      <div className="min-w-[60px] text-center">
+        <div className="font-display text-[2.6rem] leading-none text-secondary">
           36
         </div>
-        <div className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-muted-foreground">
-          Already Taken
+        <div className="font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground">
+          Already Gone
         </div>
       </div>
       <div
-        className="h-14 w-px shrink-0 bg-border"
+        className="h-[50px] w-px shrink-0 bg-border"
         role="separator"
         aria-hidden="true"
       />
-      <div className="min-w-[200px] flex-1">
-        <strong className="mb-1 block text-base text-foreground">
-          Only 14 spots remain at ₦15,000
+      <div className="min-w-[180px] flex-1">
+        <strong className="mb-0.5 block text-[0.96rem] text-foreground">
+          Only 14 spots left at ₦15,000
         </strong>
-        <span className="text-[0.9rem] text-muted-foreground">
-          Price returns to ₦70,000 when the 50th spot is filled. No exceptions.
+        <span className="text-[0.84rem] text-muted-foreground">
+          After that it&apos;s ₦70,000. That&apos;s not a threat — that&apos;s just the plan.
         </span>
       </div>
     </div>
@@ -55,23 +55,27 @@ function UrgencyBox() {
 
 function ProofBar() {
   const proofItems = [
-    { number: "5", description: "Layers. Built in order." },
-    { number: "6", description: "Modules + deliverables" },
-    { number: "₦55K", description: "You save at founding price" },
-    { number: "14", description: "Day money-back guarantee" },
-    { number: "50", description: "Founding spots only" },
+    { number: "5", description: "Layers that fix everything", variant: "green" as const },
+    { number: "6", description: "Modules + real deliverables", variant: "green" as const },
+    { number: "₦55K", description: "Saved at founding price", variant: "blue" as const },
+    { number: "50", description: "Founding spots only", variant: "green" as const },
+    { number: "14", description: "Day money-back guarantee", variant: "blue" as const },
   ]
 
   return (
-    <div className="mt-[72px] border-y border-border bg-navy-2 py-7">
+    <div className="mt-16 border-y border-border bg-navy-2 py-7">
       <div className="container-wide">
-        <div className="flex flex-wrap items-center justify-center gap-10">
+        <div className="flex flex-wrap items-center justify-center gap-9">
           {proofItems.map((item) => (
             <div key={item.description} className="text-center">
-              <div className="font-display text-[2.4rem] leading-none text-primary">
+              <div
+                className={`font-display text-[2.3rem] leading-none ${
+                  item.variant === "blue" ? "text-secondary" : "text-primary"
+                }`}
+              >
                 {item.number}
               </div>
-              <div className="mt-0.5 font-mono text-[0.78rem] tracking-[0.08em] text-muted-foreground">
+              <div className="mt-0.5 font-mono text-[0.72rem] tracking-[0.08em] text-muted-foreground">
                 {item.description}
               </div>
             </div>
@@ -86,41 +90,47 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-[radial-gradient(ellipse_at_70%_50%,rgba(27,127,232,0.12)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(110,199,45,0.08)_0%,transparent_50%)] px-0 py-20 md:pb-[60px] md:pt-20"
+      className="relative overflow-hidden bg-hero-gradient px-0 pb-0 pt-[72px]"
       aria-labelledby="hero-heading"
     >
       <div className="container-wide relative z-10">
-        <div className="grid items-center gap-12 md:grid-cols-[1fr_420px] md:gap-[60px]">
+        <div className="grid items-center gap-9 md:grid-cols-[1fr_400px] md:gap-[52px]">
           {/* Content */}
           <div>
             <HeroBadge />
             <h1
               id="hero-heading"
-              className="mb-5 font-display text-[clamp(3rem,7vw,6.5rem)] leading-none tracking-[0.03em]"
+              className="mb-5 font-display text-[clamp(3rem,6.5vw,6rem)] leading-none tracking-[0.03em]"
             >
-              Stop <span className="text-gradient">Guessing.</span>
+              The Reason Your
               <br />
-              Start <span className="text-primary">Converting.</span>
+              Ads Aren&apos;t Working
+              <br />
+              <span className="text-gradient">
+                Has Nothing To Do
+                <br />
+                With Your Ads.
+              </span>
             </h1>
-            <p className="mb-9 max-w-[540px] text-[clamp(1rem,1.6vw,1.18rem)] leading-relaxed text-muted-foreground">
-              You don&apos;t have an ads problem. You have a{" "}
-              <strong className="text-foreground">foundation problem.</strong>{" "}
-              The TCSS is the 5-layer framework that builds what your campaigns
-              need <em>before</em> you spend a single kobo on Facebook ads.
+            <p className="mb-8 max-w-[520px] text-[1.05rem] leading-relaxed text-muted-foreground">
+              Right now, someone with the same product as you, the same audience,
+              maybe even a smaller budget — is getting results you can&apos;t
+              explain. They&apos;re not smarter. They&apos;re not luckier. They
+              just built something you haven&apos;t built yet.
             </p>
 
             <UrgencyBox />
 
             <div className="flex flex-wrap items-center gap-4">
-              <CTAButton href="#offer">Claim Your Spot — ₦15,000</CTAButton>
-              <SecondaryLink href="#problem">Is this for me? ↓</SecondaryLink>
+              <CTAButton href="#offer">I Want In — ₦15,000</CTAButton>
+              <SecondaryLink href="#problem">Show me more ↓</SecondaryLink>
             </div>
           </div>
 
           {/* Book Image */}
           <div className="order-first text-center md:order-last">
-            <div className="relative mx-auto max-w-[420px]">
-              <div className="aspect-[4/5] w-full animate-float rounded bg-gradient-to-br from-primary/20 to-secondary/20 shadow-[0_30px_60px_rgba(27,127,232,0.35),0_10px_30px_rgba(110,199,45,0.2)]">
+            <div className="relative mx-auto max-w-[400px]">
+              <div className="aspect-[4/5] w-full animate-float rounded bg-gradient-book shadow-book-hero">
                 <div className="flex h-full items-center justify-center p-8">
                   <div className="text-center">
                     <div className="font-display text-6xl tracking-wider text-gradient">

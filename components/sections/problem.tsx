@@ -1,54 +1,72 @@
 import { SectionLabel } from "@/components/section-label"
 
 const painPoints = [
-  "Tutorials teach you to use the platform — but never the thinking that must come before it.",
-  "You run campaigns on instinct, can't replicate wins, can't diagnose losses.",
-  "You write copy that describes your business instead of speaking to your customer's situation.",
-  "You build offers and hope they're compelling — rather than knowing exactly why they are.",
-  "Customers arrive and leave because there's no system waiting on the other side.",
+  "Every tutorial you've watched taught you how to use the platform. Nobody taught you what to build before you touch it.",
+  "Your ads are talking about your product. Your customer only cares about themselves — and they'll scroll right past anything that isn't obviously about their life.",
+  "Your offer might be good. But \"good\" isn't enough if it's not structured in a way that makes saying yes feel easy and safe.",
+  "When a campaign fails, you have no idea which part broke. So you change three things at once and still don't learn anything.",
+  "You get a customer — and then they disappear. Because there's nothing on the other side of the sale pulling them back.",
 ]
 
 export function Problem() {
   return (
     <section
       id="problem"
-      className="bg-navy-2 py-[90px]"
+      className="bg-navy-2 py-20"
       aria-labelledby="problem-heading"
     >
       <div className="container-narrow relative z-10">
-        <SectionLabel>The Real Problem</SectionLabel>
+        <SectionLabel>Let&apos;s Be Honest</SectionLabel>
         <h2
           id="problem-heading"
-          className="mb-10 font-display text-[clamp(1.8rem,3.5vw,3rem)] leading-tight tracking-[0.03em]"
+          className="mb-9 mt-3 font-display text-[clamp(1.8rem,3.5vw,3rem)] leading-tight tracking-[0.03em]"
         >
-          You know how to <span className="text-gradient">use the platform.</span>
+          You&apos;ve tried.
           <br />
-          You just don&apos;t know why your
+          You&apos;ve spent.
           <br />
-          campaigns keep underperforming.
+          <span className="text-gradient">
+            And you&apos;re still not getting
+            <br />
+            the results you deserve.
+          </span>
         </h2>
 
-        <div className="my-9 border-l-[3px] border-secondary bg-blue-dim/40 px-7 py-6">
-          <p className="text-[1.02rem] italic leading-loose text-muted-foreground">
-            You launch a campaign. You set the budget. You write a headline that
-            sounds good to you. You wait. A few clicks. Maybe a purchase. You
-            tell yourself it&apos;s working. Then it slows down. You adjust the
-            audience. Try a new creative. Another campaign. The results stay
-            inconsistent. You can&apos;t explain the good days or fix the bad
-            ones. Somewhere underneath all of it is one uncomfortable truth — you
-            are spending money you cannot fully account for.
+        <p className="mb-7 text-[1.02rem] leading-relaxed text-muted-foreground">
+          Here&apos;s the part nobody tells you. The people getting amazing
+          results from Facebook ads — the ones posting screenshots, the ones
+          whose campaigns seem to just work — they&apos;re not doing something
+          magical. They&apos;re not spending more than you. Most of them
+          aren&apos;t even more experienced. They just know something you
+          don&apos;t know yet. And after today, you will too.
+        </p>
+
+        <div className="my-7 border-l-[3px] border-secondary bg-secondary/6 px-6 py-5">
+          <p className="text-base italic leading-relaxed text-muted-foreground">
+            You open Ads Manager. You set the budget, pick an audience, write
+            something that sounds decent, and press publish. You wait. Some
+            clicks come in. Maybe one or two sales. Then it goes quiet. So you
+            tweak the audience. Change the image. Try a new headline. Nothing.
+            Another campaign. Another spend. Same result. And somewhere in the
+            back of your mind you start wondering — am I just not cut out for
+            this?
           </p>
         </div>
 
+        <p className="mb-5 text-base font-semibold text-foreground">
+          You are cut out for it. The problem isn&apos;t you. Here&apos;s
+          what&apos;s actually going wrong:
+        </p>
+
         <ul
-          className="my-8 flex list-none flex-col gap-3.5"
+          className="my-7 flex list-none flex-col gap-3"
           role="list"
           aria-label="Common pain points"
         >
           {painPoints.map((point) => (
             <li
               key={point}
-              className="flex items-start gap-3.5 border border-border bg-white/[0.03] px-[22px] py-[18px] text-[0.95rem] text-muted-foreground"
+              className="flex items-start gap-3.5 border border-border bg-white/[0.025] px-5 py-4 text-[0.94rem] leading-normal text-muted-foreground"
             >
               <span
                 className="mt-0.5 shrink-0 font-mono text-destructive"
@@ -61,10 +79,23 @@ export function Problem() {
           ))}
         </ul>
 
-        <p className="mt-7 text-[1.1rem] font-semibold text-foreground">
-          The information was never the problem.{" "}
-          <span className="text-primary">The foundation was.</span>
-        </p>
+        <div className="mt-10 border border-primary/15 bg-primary/4 px-7 py-8">
+          <p className="text-[1.05rem] leading-relaxed text-foreground">
+            Think about how much you&apos;ve spent on ads that didn&apos;t work.
+            Not just the money — the time. The late nights setting up campaigns.
+            The excitement of pressing publish. The disappointment when results
+            come back flat. The conversations you&apos;ve had with yourself
+            wondering if you&apos;re doing something wrong.
+          </p>
+          <p className="mt-4 text-[1.05rem] leading-relaxed text-muted-foreground">
+            All of that had nothing to do with your product, your audience size,
+            or your budget. It had everything to do with what you did — or
+            didn&apos;t do — before you launched.{" "}
+            <strong className="text-foreground">
+              That&apos;s what we&apos;re going to fix.
+            </strong>
+          </p>
+        </div>
       </div>
     </section>
   )
