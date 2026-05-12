@@ -1,4 +1,5 @@
 import { CTAButton, SecondaryLink } from "@/components/cta-button"
+import Image from "next/image"
 
 function HeroBadge() {
   return (
@@ -132,14 +133,17 @@ export function Hero() {
             <div className="relative mx-auto max-w-[400px]">
               <div className="aspect-[4/5] w-full animate-float rounded bg-gradient-book shadow-book-hero">
                 <div className="flex h-full items-center justify-center p-8">
-                  <div className="text-center">
-                    <div className="font-display text-6xl tracking-wider text-gradient">
+                    {/* <div className="font-display text-6xl tracking-wider text-gradient">
                       TCSS
-                    </div>
-                    <div className="mt-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      The Conversion Stack System
-                    </div>
-                  </div>
+                    </div> */}
+                    <Image
+                      src="/TCSS_BookCover.png"
+                      alt="The Conversion Stack System Book Cover"
+                      width={240}
+                      height={300}
+                      className="mx-auto mb-4"
+                    />
+                    
                 </div>
               </div>
             </div>

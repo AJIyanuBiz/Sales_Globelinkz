@@ -1,4 +1,5 @@
 import { CTAButton } from "@/components/cta-button"
+import Image from "next/image"
 
 export function Navigation() {
   return (
@@ -10,9 +11,15 @@ export function Navigation() {
       <div className="container-wide">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <span className="font-display text-2xl tracking-wider text-foreground">
+            {/* <span className="font-display text-2xl tracking-wider text-foreground">
               TCSS
-            </span>
+            </span> */}
+            <Image
+              src="/globelinkz-full.png"
+              alt="GlobeLinkz Logo"
+              width={60}
+              height={60}
+            />
           </div>
           <CTAButton href="#offer" variant="nav">
             Get Instant Access
