@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/section-label"
 import { CTAButton } from "@/components/cta-button"
+import Image from "next/image"
 
 const stackLayers = [
   {
@@ -63,18 +64,12 @@ function BookFeature() {
     <div className="mt-[52px] grid items-center gap-11 border border-border bg-navy-3 p-11 md:grid-cols-[220px_1fr]">
       {/* Book placeholder */}
       <div className="mx-auto max-w-[180px] md:mx-0 md:max-w-none">
-        <div className="aspect-[4/5] w-full rounded bg-gradient-book shadow-book-mixed">
-          <div className="flex h-full items-center justify-center p-6">
-            <div className="text-center">
-              <div className="font-display text-4xl tracking-wider text-gradient">
-                TCSS
-              </div>
-              <div className="mt-2 font-mono text-[0.55rem] uppercase tracking-widest text-muted-foreground">
-                Complete System
-              </div>
-            </div>
-          </div>
-        </div>
+        <Image
+                          src="/TCSS_BookCover.png"
+                          alt="The Conversion Stack System Book Cover"
+                          height={500}
+                          width={400}
+                        />
       </div>
 
       <div>

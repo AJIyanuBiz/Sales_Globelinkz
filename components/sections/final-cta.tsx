@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/section-label"
 import { CTAButton } from "@/components/cta-button"
+import Image from "next/image"
 
 export function FinalCTA() {
   return (
@@ -21,17 +22,15 @@ export function FinalCTA() {
 
         {/* Book placeholder */}
         <div className="mx-auto mb-7 max-w-[190px]">
-          <div className="aspect-[4/5] w-full rounded bg-gradient-book shadow-book">
-            <div className="flex h-full items-center justify-center p-4">
-              <div className="text-center">
-                <div className="font-display text-3xl tracking-wider text-gradient">
-                  TCSS
-                </div>
-                <div className="mt-2 font-mono text-[0.5rem] uppercase tracking-widest text-muted-foreground">
-                  Complete System
-                </div>
-              </div>
-            </div>
+          {/* <div className="aspect-[4/5] w-full rounded bg-gradient-book shadow-book"> */}
+            <div className="flex h-full items-center justify-center m-4">
+                <Image
+                  src="/TCSS_BookCover.png"
+                  alt="The Conversion Stack System Book Cover"
+                  height={200}
+                  width={160}
+                />
+            {/* </div> */}
           </div>
         </div>
 
