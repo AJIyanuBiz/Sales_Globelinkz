@@ -29,7 +29,7 @@ export function Transformation() {
       className="py-20"
       aria-labelledby="transformation-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>Before &amp; After</SectionLabel>
         <h2
           id="transformation-heading"

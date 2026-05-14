@@ -94,7 +94,7 @@ export function Hero() {
       className="relative overflow-hidden bg-hero-gradient px-0 pb-0 pt-[72px]"
       aria-labelledby="hero-heading"
     >
-      <div className="container-wide relative z-10">
+      <div className="container-wide relative">
         <div className="grid items-center gap-9 md:grid-cols-[1fr_400px] md:gap-[52px]">
           {/* Content */}
           <div>
@@ -123,7 +123,7 @@ export function Hero() {
             <UrgencyBox />
 
             <div className="flex flex-wrap items-center gap-4">
-              <CTAButton href="#offer">I Want It — ₦15,000</CTAButton>
+              <CTAButton>I Want It — ₦15,000</CTAButton>
               <SecondaryLink href="#problem">Show me more ↓</SecondaryLink>
             </div>
           </div>

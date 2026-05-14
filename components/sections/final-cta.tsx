@@ -17,7 +17,7 @@ export function FinalCTA() {
         TCSS
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel className="justify-center">Make a Decision</SectionLabel>
 
         {/* Book placeholder */}
@@ -58,7 +58,7 @@ export function FinalCTA() {
         </p>
 
         <div className="mb-3.5">
-          <CTAButton href="#offer" variant="primary-lg">
+          <CTAButton href="https://selar.com/3371q730k8" variant="primary-lg">
             I&apos;m In — Give Me the STACK
           </CTAButton>
         </div>

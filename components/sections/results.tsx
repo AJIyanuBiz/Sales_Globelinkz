@@ -235,7 +235,7 @@ export function Results() {
       className="bg-navy-2 py-[90px]"
       aria-labelledby="results-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>It Works. Here&apos;s Proof.</SectionLabel>
         <h2
           id="results-heading"

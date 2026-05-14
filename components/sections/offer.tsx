@@ -80,7 +80,7 @@ export function Offer() {
       className="bg-section-gradient bg-navy-2 py-20"
       aria-labelledby="offer-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>The Investment</SectionLabel>
         <h2
           id="offer-heading"
@@ -120,7 +120,7 @@ export function Offer() {
               <SpotsMeter />
 
               <CTAButton
-                href="#"
+                href="https://selar.com/3371q730k8"
                 variant="primary-lg"
                 className="mb-3.5 block w-full text-center"
               >

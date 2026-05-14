@@ -4,7 +4,7 @@ import Image from "next/image"
 export function Navigation() {
   return (
     <nav
-      className="sticky top-0 z-50 border-b border-border bg-navy/95 py-4 backdrop-blur-md"
+      className="sticky top-0 z-10 border-b border-border bg-navy/95 py-4 backdrop-blur-md"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -21,7 +21,7 @@ export function Navigation() {
               height={60}
             />
           </div>
-          <CTAButton href="#offer" variant="nav">
+          <CTAButton href="https://selar.com/3371q730k8" variant="nav">
             Get Instant Access
           </CTAButton>
         </div>

@@ -15,7 +15,7 @@ export function Problem() {
       className="bg-navy-2 py-20"
       aria-labelledby="problem-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative ">
         <SectionLabel>Let&apos;s Be Honest</SectionLabel>
         <h2
           id="problem-heading"

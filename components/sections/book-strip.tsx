@@ -29,7 +29,7 @@ export function BookStrip() {
               </strong>
               . After that it goes to ₦70,000 and stays there.
             </p>
-            <CTAButton href="#offer">Claim My Founding Spot</CTAButton>
+            <CTAButton href="https://selar.com/3371q730k8">Claim My Founding Spot</CTAButton>
           </div>
 
           {/* Book placeholder */}

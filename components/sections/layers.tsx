@@ -149,7 +149,7 @@ export function Layers() {
       className="bg-navy-2 py-20"
       aria-labelledby="layers-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>What You&apos;ll Build</SectionLabel>
         <h2
           id="layers-heading"

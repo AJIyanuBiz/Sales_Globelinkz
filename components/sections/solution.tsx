@@ -84,7 +84,7 @@ function BookFeature() {
           you&apos;ll never open again. Things you&apos;ll use before every
           single campaign from this day forward.
         </p>
-        <CTAButton href="#offer">Get the Full System — ₦15,000</CTAButton>
+        <CTAButton href="https://selar.com/3371q730k8">Get the Full System — ₦15,000</CTAButton>
       </div>
     </div>
   )
@@ -97,7 +97,7 @@ export function Solution() {
       className="bg-navy-2 py-20"
       aria-labelledby="solution-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>The System</SectionLabel>
         <h2
           id="solution-heading"

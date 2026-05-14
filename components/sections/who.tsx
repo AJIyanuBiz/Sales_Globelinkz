@@ -58,7 +58,7 @@ export function Who() {
       className="bg-navy-2 py-20"
       aria-labelledby="who-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative ">
         <SectionLabel>Is This You?</SectionLabel>
         <h2
           id="who-heading"

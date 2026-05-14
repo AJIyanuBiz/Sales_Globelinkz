@@ -1,7 +1,7 @@
 export function AlertBar() {
   return (
     <div
-      className="relative z-10 bg-gradient-brand px-6 py-3 text-center font-mono text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-navy"
+      className="relative bg-gradient-brand px-6 py-3 text-center font-mono text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-navy"
       role="alert"
       aria-live="polite"
     >

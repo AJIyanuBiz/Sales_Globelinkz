@@ -106,7 +106,7 @@ export function FAQ() {
       className="bg-navy-2 py-20"
       aria-labelledby="faq-heading"
     >
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative">
         <SectionLabel>Got Questions?</SectionLabel>
         <h2
           id="faq-heading"
