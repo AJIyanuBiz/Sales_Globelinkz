@@ -1,5 +1,5 @@
-import { SectionLabel } from "@/components/section-label"
-import { CTAButton } from "@/components/cta-button"
+import { SectionLabel } from "@/components/section-label";
+import { CTAButton } from "@/components/cta-button";
 
 const includedItems = [
   "All 5 layers of the Conversion Stack System",
@@ -11,7 +11,7 @@ const includedItems = [
   "The Campaign Launch Checklist",
   "6 real deliverables — documents you complete and own",
   "Lifetime access including all updates",
-]
+];
 
 function SpotsMeter() {
   return (
@@ -30,21 +30,20 @@ function SpotsMeter() {
         />
       </div>
       <div className="mt-2 text-[0.84rem] text-foreground">
-        36 of 50 spots gone —{" "}
-        <strong className="text-primary">14 left</strong>
+        36 of 50 spots gone — <strong className="text-primary">14 left</strong>
       </div>
     </div>
-  )
+  );
 }
 
 function GuaranteeStrip() {
   return (
     <div className="mt-5 flex items-center gap-3.5 border border-secondary/30 bg-secondary/5 p-4">
-      <div className="flex h-[52px] w-[52px] shrink-0 flex-col items-center justify-center rounded-full border-2 border-secondary">
-        <div className="font-display text-[1.3rem] leading-none text-secondary">
+      <div className="flex h-[92px] w-[92px] shrink-0 flex-col items-center justify-center rounded-full border-2 border-secondary">
+        <div className="font-display text-[1.9rem] leading-none text-secondary">
           14
         </div>
-        <div className="font-mono text-[0.42rem] uppercase tracking-[0.08em] text-secondary">
+        <div className="font-mono text-[0.52rem] uppercase tracking-[0.08em] text-secondary">
           Day Guarantee
         </div>
       </div>
@@ -54,7 +53,7 @@ function GuaranteeStrip() {
         back. No awkward back-and-forth.
       </p>
     </div>
-  )
+  );
 }
 
 function SavingsBox() {
@@ -70,7 +69,7 @@ function SavingsBox() {
         50 founding members only. After that, ₦70,000 permanently.
       </p>
     </div>
-  )
+  );
 }
 
 export function Offer() {
@@ -120,7 +119,7 @@ export function Offer() {
               <SpotsMeter />
 
               <CTAButton
-                href="https://selar.com/3371q730k8"
+                // href="https://selar.com/3371q730k8"
                 variant="primary-lg"
                 className="mb-3.5 block w-full text-center"
               >
@@ -166,5 +165,5 @@ export function Offer() {
         </div>
       </div>
     </section>
-  )
+  );
 }

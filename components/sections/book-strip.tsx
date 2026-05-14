@@ -1,6 +1,6 @@
-import { SectionLabel } from "@/components/section-label"
-import { CTAButton } from "@/components/cta-button"
-import Image from "next/image"
+import { SectionLabel } from "@/components/section-label";
+import { CTAButton } from "@/components/cta-button";
+import Image from "next/image";
 
 export function BookStrip() {
   return (
@@ -24,25 +24,23 @@ export function BookStrip() {
             </p>
             <p className="mb-6 text-[0.85rem] text-muted-foreground">
               36 of the 50 founding spots are gone.{" "}
-              <strong className="text-foreground">
-                14 remain at ₦15,000
-              </strong>
-              . After that it goes to ₦70,000 and stays there.
+              <strong className="text-foreground">14 remain at ₦15,000</strong>.
+              After that it goes to ₦70,000 and stays there.
             </p>
-            <CTAButton href="https://selar.com/3371q730k8">Claim My Founding Spot</CTAButton>
+            <CTAButton href="#offer">Claim My Founding Spot</CTAButton>
           </div>
 
           {/* Book placeholder */}
           <div className="mx-auto max-w-[180px] md:mx-0 md:max-w-none">
             <Image
-                              src="/TCSS_BookCover.png"
-                              alt="The Conversion Stack System Book Cover"
-                              height={500}
-                              width={400}
-                            />
+              src="/TCSS_BookCover.png"
+              alt="The Conversion Stack System Book Cover"
+              height={500}
+              width={400}
+            />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

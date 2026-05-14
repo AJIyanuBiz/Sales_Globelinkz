@@ -132,7 +132,7 @@ export function Hero() {
           <div className="order-first text-center md:order-last">
             <div className="relative mx-auto max-w-[400px]">
               <div className="aspect-[4/5] w-full animate-float rounded bg-transparent">
-                <div className="flex h-full items-center justify-center p-8 ">
+                <div className="flex h-full items-center justify-center p-8 relative">
                     {/* <div className="font-display text-6xl tracking-wider text-gradient">
                       TCSS
                     </div> */}

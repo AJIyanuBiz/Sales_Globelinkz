@@ -1,6 +1,6 @@
-import { SectionLabel } from "@/components/section-label"
-import { CTAButton } from "@/components/cta-button"
-import Image from "next/image"
+import { SectionLabel } from "@/components/section-label";
+import { CTAButton } from "@/components/cta-button";
+import Image from "next/image";
 
 export function FinalCTA() {
   return (
@@ -23,13 +23,13 @@ export function FinalCTA() {
         {/* Book placeholder */}
         <div className="mx-auto mb-7 max-w-[190px]">
           {/* <div className="aspect-[4/5] w-full rounded bg-gradient-book shadow-book"> */}
-            <div className="flex h-full items-center justify-center m-4">
-                <Image
-                  src="/TCSS_BookCover.png"
-                  alt="The Conversion Stack System Book Cover"
-                  height={200}
-                  width={160}
-                />
+          <div className="flex h-full items-center justify-center m-4">
+            <Image
+              src="/TCSS_BookCover.png"
+              alt="The Conversion Stack System Book Cover"
+              height={200}
+              width={160}
+            />
             {/* </div> */}
           </div>
         </div>
@@ -58,7 +58,7 @@ export function FinalCTA() {
         </p>
 
         <div className="mb-3.5">
-          <CTAButton href="https://selar.com/3371q730k8" variant="primary-lg">
+          <CTAButton href="#offer" variant="primary-lg">
             I&apos;m In — Give Me the STACK
           </CTAButton>
         </div>
@@ -80,5 +80,5 @@ export function FinalCTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }

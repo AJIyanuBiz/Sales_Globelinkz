@@ -1,5 +1,5 @@
-import { CTAButton } from "@/components/cta-button"
-import Image from "next/image"
+import { CTAButton } from "@/components/cta-button";
+import Image from "next/image";
 
 export function Navigation() {
   return (
@@ -19,13 +19,14 @@ export function Navigation() {
               alt="GlobeLinkz Logo"
               width={60}
               height={60}
+              style={{ width: "5%", height: "auto" }}
             />
           </div>
-          <CTAButton href="https://selar.com/3371q730k8" variant="nav">
+          <CTAButton href="#offer" variant="nav">
             Get Instant Access
           </CTAButton>
         </div>
       </div>
     </nav>
-  )
+  );
 }

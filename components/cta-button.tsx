@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { useState } from "react"
-import { X } from "lucide-react"
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { X } from "lucide-react";
 
 // interface CTAButtonProps {
 //   href: string
@@ -12,21 +12,19 @@ import { X } from "lucide-react"
 //   className?: string
 // }
 
-
-
 interface CTAButtonProps {
-  href?: string
-  children: React.ReactNode
-  variant?: "primary" | "primary-lg" | "nav"
-  className?: string
+  href?: string;
+  children: React.ReactNode;
+  variant?: "primary" | "primary-lg" | "nav";
+  className?: string;
 }
 
 interface FormData {
-  email: string
-  firstName: string
-  lastName: string
-  phoneNumber: string
-  country: string
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  country: string;
 }
 
 export function CTAButton({
@@ -35,21 +33,21 @@ export function CTAButton({
   variant = "primary",
   className,
 }: CTAButtonProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     email: "",
     firstName: "",
     lastName: "",
     phoneNumber: "",
     country: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
-    "idle"
-  )
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const baseStyles =
-    "inline-block font-mono font-semibold uppercase tracking-wider text-primary-foreground no-underline transition-all duration-150 bg-gradient-cta"
+    "inline-block font-mono font-semibold uppercase tracking-wider text-primary-foreground no-underline transition-all duration-150 bg-gradient-cta";
 
   const variants = {
     primary:
@@ -57,20 +55,20 @@ export function CTAButton({
     "primary-lg":
       "px-14 py-[22px] text-[0.85rem] tracking-[0.12em] shadow-cta-lg hover:-translate-y-0.5 hover:shadow-cta-lg-hover",
     nav: "px-6 py-2.5 text-[0.68rem] tracking-[0.12em] hover:brightness-110",
-  }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus("idle")
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
 
     try {
       // Replace with your actual API endpoint
@@ -80,48 +78,49 @@ export function CTAButton({
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
       if (response.ok) {
-        setSubmitStatus("success")
+        setSubmitStatus("success");
         setFormData({
           email: "",
           firstName: "",
           lastName: "",
           phoneNumber: "",
           country: "",
-        })
+        });
         setTimeout(() => {
-          setIsOpen(false)
-          setSubmitStatus("idle")
-        }, 2000)
+          setIsOpen(false);
+          setSubmitStatus("idle");
+        }, 2000);
+        window.location.href = `https://selar.com/3371q730k8?add_to_cart=1&email=${encodeURIComponent(formData.email)}&fullname=${encodeURIComponent(formData.firstName)}%20${encodeURIComponent(formData.lastName)}&mobile=${encodeURIComponent(formData.phoneNumber)}`;
       } else {
-        setSubmitStatus("error")
+        setSubmitStatus("error");
       }
     } catch (error) {
-      console.error("Form submission error:", error)
-      setSubmitStatus("error")
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleButtonClick = () => {
     if (href) {
       // If href is present, navigate instead of opening modal
-      window.location.href = href
+      window.location.href = href;
     } else {
       // If no href, open the form modal
-      setIsOpen(true)
+      setIsOpen(true);
     }
-  }
+  };
 
   // Handle closing modal on outside click
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
 
   // Manage body overflow when modal is open
   // useEffect(() => {
@@ -140,7 +139,12 @@ export function CTAButton({
     <>
       <button
         onClick={handleButtonClick}
-        className={cn(baseStyles, variants[variant], className, "cursor-pointer")}
+        className={cn(
+          baseStyles,
+          variants[variant],
+          className,
+          "cursor-pointer",
+        )}
       >
         {children}
       </button>
@@ -229,7 +233,8 @@ export function CTAButton({
                         htmlFor="lastName"
                         className="block text-xs font-semibold uppercase tracking-widest text-gray-700 mb-2"
                       >
-                        Last Name <span className="text-gray-400">(Optional)</span>
+                        Last Name{" "}
+                        <span className="text-gray-400">(Optional)</span>
                       </label>
                       <input
                         type="text"
@@ -268,7 +273,8 @@ export function CTAButton({
                         htmlFor="country"
                         className="block text-xs font-semibold uppercase tracking-widest text-gray-700 mb-2"
                       >
-                        Country <span className="text-gray-400">(Optional)</span>
+                        Country{" "}
+                        <span className="text-gray-400">(Optional)</span>
                       </label>
                       <input
                         type="text"
@@ -294,7 +300,7 @@ export function CTAButton({
                       disabled={isSubmitting}
                       className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-mono font-semibold uppercase tracking-wider rounded-lg hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200"
                     >
-                      {isSubmitting ? "Submitting..." : "Submit"}
+                      {isSubmitting ? "Processing..." : "Proceed to Checkout"}
                     </button>
                   </form>
 
@@ -326,7 +332,7 @@ export function CTAButton({
                     Success!
                   </h3>
                   <p className="text-sm text-gray-600 mb-4">
-                    Thank you for signing up. We'll be in touch shortly.
+                    Redirecting to checkout...
                   </p>
                 </div>
               )}
@@ -335,25 +341,29 @@ export function CTAButton({
         </>
       )}
     </>
-  )
+  );
 }
 
 interface SecondaryLinkProps {
-  href: string
-  children: React.ReactNode
-  className?: string
+  href: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-export function SecondaryLink({ href, children, className }: SecondaryLinkProps) {
+export function SecondaryLink({
+  href,
+  children,
+  className,
+}: SecondaryLinkProps) {
   return (
     <Link
       href={href}
       className={cn(
         "text-[0.9rem] text-muted-foreground no-underline hover:text-foreground transition-colors",
-        className
+        className,
       )}
     >
       {children}
     </Link>
-  )
+  );
 }

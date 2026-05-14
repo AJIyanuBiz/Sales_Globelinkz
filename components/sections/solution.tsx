@@ -1,6 +1,6 @@
-import { SectionLabel } from "@/components/section-label"
-import { CTAButton } from "@/components/cta-button"
-import Image from "next/image"
+import { SectionLabel } from "@/components/section-label";
+import { CTAButton } from "@/components/cta-button";
+import Image from "next/image";
 
 const stackLayers = [
   {
@@ -33,16 +33,16 @@ const stackLayers = [
     description:
       "What happens after the sale. Most people have nothing here. This is where loyalty is built.",
   },
-]
+];
 
 function StackItem({
   letter,
   name,
   description,
 }: {
-  letter: string
-  name: string
-  description: string
+  letter: string;
+  name: string;
+  description: string;
 }) {
   return (
     <div className="mb-2.5 flex items-start gap-4 border border-border bg-foreground/[0.02] px-[18px] py-[15px] transition-all duration-200 hover:border-primary">
@@ -50,13 +50,15 @@ function StackItem({
         {letter}
       </div>
       <div>
-        <div className="text-[0.92rem] font-semibold text-foreground">{name}</div>
+        <div className="text-[0.92rem] font-semibold text-foreground">
+          {name}
+        </div>
         <div className="mt-0.5 text-[0.8rem] text-muted-foreground">
           {description}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function BookFeature() {
@@ -65,11 +67,11 @@ function BookFeature() {
       {/* Book placeholder */}
       <div className="mx-auto max-w-[180px] md:mx-0 md:max-w-none">
         <Image
-                          src="/TCSS_BookCover.png"
-                          alt="The Conversion Stack System Book Cover"
-                          height={500}
-                          width={400}
-                        />
+          src="/TCSS_BookCover.png"
+          alt="The Conversion Stack System Book Cover"
+          height={500}
+          width={400}
+        />
       </div>
 
       <div>
@@ -84,10 +86,10 @@ function BookFeature() {
           you&apos;ll never open again. Things you&apos;ll use before every
           single campaign from this day forward.
         </p>
-        <CTAButton href="https://selar.com/3371q730k8">Get the Full System — ₦15,000</CTAButton>
+        <CTAButton href="#offer">Get the Full System — ₦15,000</CTAButton>
       </div>
     </div>
-  )
+  );
 }
 
 export function Solution() {
@@ -161,5 +163,5 @@ export function Solution() {
         <BookFeature />
       </div>
     </section>
-  )
+  );
 }

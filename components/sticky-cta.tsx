@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { CTAButton } from "@/components/cta-button"
+import { useState, useEffect } from "react";
+import { CTAButton } from "@/components/cta-button";
 
 export function StickyCTA() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const hero = document.getElementById("hero")
-      const finalCta = document.getElementById("final-cta")
+      const hero = document.getElementById("hero");
+      const finalCta = document.getElementById("final-cta");
 
-      if (!hero || !finalCta) return
+      if (!hero || !finalCta) return;
 
-      const heroBottom = hero.getBoundingClientRect().bottom
-      const finalCtaTop = finalCta.getBoundingClientRect().top
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const finalCtaTop = finalCta.getBoundingClientRect().top;
 
-      setIsVisible(heroBottom < 0 && finalCtaTop > window.innerHeight)
-    }
+      setIsVisible(heroBottom < 0 && finalCtaTop > window.innerHeight);
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
@@ -32,9 +32,9 @@ export function StickyCTA() {
       }`}
       aria-hidden={!isVisible}
     >
-      <CTAButton href="https://selar.com/3371q730k8" className="shadow-cta-hover">
+      <CTAButton href="#offer" className="shadow-cta-hover">
         14 Spots Left — ₦15,000
       </CTAButton>
     </div>
-  )
+  );
 }
