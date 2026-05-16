@@ -122,6 +122,7 @@ export function Offer() {
                 // href="https://selar.com/3371q730k8"
                 variant="primary-lg"
                 className="mb-3.5 block w-full text-center"
+                location="offer"
               >
                 Yes — Give Me the STACK for ₦15,000
               </CTAButton>

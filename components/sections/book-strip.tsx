@@ -27,7 +27,9 @@ export function BookStrip() {
               <strong className="text-foreground">14 remain at ₦15,000</strong>.
               After that it goes to ₦70,000 and stays there.
             </p>
-            <CTAButton href="#offer">Claim My Founding Spot</CTAButton>
+            <CTAButton href="#offer" location="book-strip">
+              Claim My Founding Spot
+            </CTAButton>
           </div>
 
           {/* Book placeholder */}

@@ -5,18 +5,12 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { X } from "lucide-react";
 
-// interface CTAButtonProps {
-//   href: string
-//   children: React.ReactNode
-//   variant?: "primary" | "primary-lg" | "nav"
-//   className?: string
-// }
-
 interface CTAButtonProps {
   href?: string;
   children: React.ReactNode;
   variant?: "primary" | "primary-lg" | "nav";
   className?: string;
+  location?: string;
 }
 
 interface FormData {
@@ -27,11 +21,23 @@ interface FormData {
   country: string;
 }
 
+const trackEvent = (
+  eventName: string,
+  parameters: Record<string, unknown> = {},
+) => {
+  if (typeof window !== "undefined" && (window as any).fbq) {
+    (window as any).fbq("track", eventName, parameters);
+  } else {
+    console.warn(`Meta Pixel: ${eventName} event fired before pixel loaded`);
+  }
+};
+
 export function CTAButton({
   href,
   children,
   variant = "primary",
   className,
+  location = "unknown", // default fallback
 }: CTAButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -57,12 +63,25 @@ export function CTAButton({
     nav: "px-6 py-2.5 text-[0.68rem] tracking-[0.12em] hover:brightness-110",
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleButtonClick = () => {
+    // Track CTA Click with location
+    trackEvent("LeadCTA", {
+      cta_location: location,
+      content_name: "CTA Button Clicked",
+      button_text: children?.toString().slice(0, 50),
+    });
+
+    if (href) {
+      window.location.href = href;
+    } else {
+      // Track modal open
+      trackEvent("ViewContent", {
+        content_name: "Offer Modal",
+        cta_location: location,
+      });
+
+      setIsOpen(true);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -71,16 +90,21 @@ export function CTAButton({
     setSubmitStatus("idle");
 
     try {
-      // Replace with your actual API endpoint
       const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
+        // Track InitiateCheckout when proceeding to Selar
+        trackEvent("InitiateCheckout", {
+          cta_location: location,
+          value: 15000,
+          currency: "NGN",
+          content_name: "Offer Purchase",
+        });
+
         setSubmitStatus("success");
         setFormData({
           email: "",
@@ -89,11 +113,13 @@ export function CTAButton({
           phoneNumber: "",
           country: "",
         });
+
         setTimeout(() => {
           setIsOpen(false);
           setSubmitStatus("idle");
-        }, 2000);
-        window.location.href = `https://selar.com/3371q730k8?add_to_cart=1&email=${encodeURIComponent(formData.email)}&fullname=${encodeURIComponent(formData.firstName)}%20${encodeURIComponent(formData.lastName)}&mobile=${encodeURIComponent(formData.phoneNumber)}`;
+          // Redirect to Selar
+          window.location.href = `https://selar.com/3371q730k8?add_to_cart=1&email=${encodeURIComponent(formData.email)}&fullname=${encodeURIComponent(formData.firstName)}%20${encodeURIComponent(formData.lastName)}&mobile=${encodeURIComponent(formData.phoneNumber)}`;
+        }, 1500);
       } else {
         setSubmitStatus("error");
       }
@@ -105,35 +131,16 @@ export function CTAButton({
     }
   };
 
-  const handleButtonClick = () => {
-    if (href) {
-      // If href is present, navigate instead of opening modal
-      window.location.href = href;
-    } else {
-      // If no href, open the form modal
-      setIsOpen(true);
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle closing modal on outside click
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       setIsOpen(false);
     }
   };
-
-  // Manage body overflow when modal is open
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = "hidden"
-  //   } else {
-  //     document.body.style.overflow = "unset"
-  //   }
-
-  //   return () => {
-  //     document.body.style.overflow = "unset"
-  //   }
-  // }, [isOpen])
 
   return (
     <>
@@ -149,32 +156,26 @@ export function CTAButton({
         {children}
       </button>
 
-      {/* Modal Overlay - Higher z-index to ensure it appears above all content */}
+      {/* Modal */}
       {isOpen && (
         <>
-          {/* Backdrop with full coverage */}
           <div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
             onClick={handleOverlayClick}
-            aria-label="Close modal"
           />
 
-          {/* Modal Container */}
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
             <div
               className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-300"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors z-10"
-                aria-label="Close modal"
               >
                 <X size={24} />
               </button>
 
-              {/* Form Content */}
               {submitStatus !== "success" ? (
                 <div className="p-8">
                   <div className="mb-6">
@@ -187,7 +188,7 @@ export function CTAButton({
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Email (Required) */}
+                    {/* Form fields remain the same */}
                     <div>
                       <label
                         htmlFor="email"
@@ -203,11 +204,10 @@ export function CTAButton({
                         onChange={handleInputChange}
                         required
                         placeholder="you@example.com"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                       />
                     </div>
 
-                    {/* First Name (Required) */}
                     <div>
                       <label
                         htmlFor="firstName"
@@ -223,11 +223,10 @@ export function CTAButton({
                         onChange={handleInputChange}
                         required
                         placeholder="John"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                       />
                     </div>
 
-                    {/* Last Name (Optional) */}
                     <div>
                       <label
                         htmlFor="lastName"
@@ -243,11 +242,10 @@ export function CTAButton({
                         value={formData.lastName}
                         onChange={handleInputChange}
                         placeholder="Doe"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                       />
                     </div>
 
-                    {/* Phone Number (Required) */}
                     <div>
                       <label
                         htmlFor="phoneNumber"
@@ -262,12 +260,11 @@ export function CTAButton({
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
                         required
-                        placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all"
+                        placeholder="+234 000 000 0000"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                       />
                     </div>
 
-                    {/* Country (Optional) */}
                     <div>
                       <label
                         htmlFor="country"
@@ -282,19 +279,17 @@ export function CTAButton({
                         name="country"
                         value={formData.country}
                         onChange={handleInputChange}
-                        placeholder="United States"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all"
+                        placeholder="Nigeria"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                       />
                     </div>
 
-                    {/* Error Message */}
                     {submitStatus === "error" && (
                       <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
                         Something went wrong. Please try again.
                       </div>
                     )}
 
-                    {/* Submit Button */}
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -303,13 +298,8 @@ export function CTAButton({
                       {isSubmitting ? "Processing..." : "Proceed to Checkout"}
                     </button>
                   </form>
-
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    We respect your privacy. Your data is secure.
-                  </p>
                 </div>
               ) : (
-                /* Success Message */
                 <div className="p-8 text-center">
                   <div className="mb-4 inline-block">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center animate-pulse">
@@ -331,7 +321,7 @@ export function CTAButton({
                   <h3 className="text-xl font-mono font-bold uppercase tracking-wider text-gray-900 mb-2">
                     Success!
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-600">
                     Redirecting to checkout...
                   </p>
                 </div>
@@ -344,17 +334,15 @@ export function CTAButton({
   );
 }
 
-interface SecondaryLinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}
-
 export function SecondaryLink({
   href,
   children,
   className,
-}: SecondaryLinkProps) {
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <Link
       href={href}

@@ -22,7 +22,7 @@ export function Navigation() {
               style={{ width: "5%", height: "auto" }}
             />
           </div>
-          <CTAButton href="#offer" variant="nav">
+          <CTAButton href="#offer" variant="nav" location="navigation">
             Get Instant Access
           </CTAButton>
         </div>

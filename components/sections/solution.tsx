@@ -86,7 +86,9 @@ function BookFeature() {
           you&apos;ll never open again. Things you&apos;ll use before every
           single campaign from this day forward.
         </p>
-        <CTAButton href="#offer">Get the Full System — ₦15,000</CTAButton>
+        <CTAButton href="#offer" location="solution">
+          Get the Full System — ₦15,000
+        </CTAButton>
       </div>
     </div>
   );

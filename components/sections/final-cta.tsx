@@ -58,7 +58,7 @@ export function FinalCTA() {
         </p>
 
         <div className="mb-3.5">
-          <CTAButton href="#offer" variant="primary-lg">
+          <CTAButton href="#offer" variant="primary-lg" location="final-cta">
             I&apos;m In — Give Me the STACK
           </CTAButton>
         </div>

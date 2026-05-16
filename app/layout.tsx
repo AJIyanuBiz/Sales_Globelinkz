@@ -1,28 +1,29 @@
-import type { Metadata, Viewport } from "next"
-import { Inter, DM_Mono, Bebas_Neue } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import "./globals.css"
+import type { Metadata, Viewport } from "next";
+import { Inter, DM_Mono, Bebas_Neue } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import MetaPixel from "@/components/MetaPixel";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-})
+});
 
 const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-dm-mono",
   display: "swap",
-})
+});
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-bebas-neue",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: "TCSS — Build Facebook Ads That Make People Stop, Click and Buy",
@@ -61,18 +62,18 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#0a1628",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -80,10 +81,11 @@ export default function RootLayout({
       className={`${inter.variable} ${dmMono.variable} ${bebasNeue.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <MetaPixel />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
         {process.env.NODE_ENV === "production" && <SpeedInsights />}
       </body>
     </html>
-  )
+  );
 }

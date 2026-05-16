@@ -1,5 +1,5 @@
-import { CTAButton, SecondaryLink } from "@/components/cta-button"
-import Image from "next/image"
+import { CTAButton, SecondaryLink } from "@/components/cta-button";
+import Image from "next/image";
 
 function HeroBadge() {
   return (
@@ -10,7 +10,7 @@ function HeroBadge() {
       />
       The Conversion Stack System
     </div>
-  )
+  );
 }
 
 function UrgencyBox() {
@@ -47,21 +47,42 @@ function UrgencyBox() {
           Only 14 spots left at ₦15,000
         </strong>
         <span className="text-[0.84rem] text-muted-foreground">
-          After that it&apos;s ₦70,000. That&apos;s not a threat — that&apos;s just the plan.
+          After that it&apos;s ₦70,000. That&apos;s not a threat — that&apos;s
+          just the plan.
         </span>
       </div>
     </div>
-  )
+  );
 }
 
 function ProofBar() {
   const proofItems = [
-    { number: "5", description: "Layers that fix everything", variant: "green" as const },
-    { number: "6", description: "Modules + real deliverables", variant: "green" as const },
-    { number: "₦55K", description: "Saved at founding price", variant: "blue" as const },
-    { number: "50", description: "Founding spots only", variant: "green" as const },
-    { number: "14", description: "Day money-back guarantee", variant: "blue" as const },
-  ]
+    {
+      number: "5",
+      description: "Layers that fix everything",
+      variant: "green" as const,
+    },
+    {
+      number: "6",
+      description: "Modules + real deliverables",
+      variant: "green" as const,
+    },
+    {
+      number: "₦55K",
+      description: "Saved at founding price",
+      variant: "blue" as const,
+    },
+    {
+      number: "50",
+      description: "Founding spots only",
+      variant: "green" as const,
+    },
+    {
+      number: "14",
+      description: "Day money-back guarantee",
+      variant: "blue" as const,
+    },
+  ];
 
   return (
     <div className="mt-16 border-y border-border bg-navy-2 py-7">
@@ -84,7 +105,7 @@ function ProofBar() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function Hero() {
@@ -114,16 +135,16 @@ export function Hero() {
               </span>
             </h1>
             <p className="mb-8 max-w-[520px] text-[1.05rem] leading-relaxed text-muted-foreground">
-              Right now, someone with the same product as you, the same audience,
-              maybe even a smaller budget — is getting results you can&apos;t
-              explain. They&apos;re not smarter. They&apos;re not luckier. They
-              just built something you haven&apos;t built yet.
+              Right now, someone with the same product as you, the same
+              audience, maybe even a smaller budget — is getting results you
+              can&apos;t explain. They&apos;re not smarter. They&apos;re not
+              luckier. They just built something you haven&apos;t built yet.
             </p>
 
             <UrgencyBox />
 
             <div className="flex flex-wrap items-center gap-4">
-              <CTAButton>I Want It — ₦15,000</CTAButton>
+              <CTAButton location="hero">I Want It — ₦15,000</CTAButton>
               <SecondaryLink href="#problem">Show me more ↓</SecondaryLink>
             </div>
           </div>
@@ -133,18 +154,17 @@ export function Hero() {
             <div className="relative mx-auto max-w-[400px]">
               <div className="aspect-[4/5] w-full animate-float rounded bg-transparent">
                 <div className="flex h-full items-center justify-center p-8 relative">
-                    {/* <div className="font-display text-6xl tracking-wider text-gradient">
+                  {/* <div className="font-display text-6xl tracking-wider text-gradient">
                       TCSS
                     </div> */}
-                    <Image
-                      src="/TCSS_BookCover.png"
-                      alt="The Conversion Stack System Book Cover"
-                      // width={240}
-                      // height={300}
-                      fill
-                      className="object-cover"
-                    />
-                    
+                  <Image
+                    src="/TCSS_BookCover.png"
+                    alt="The Conversion Stack System Book Cover"
+                    // width={240}
+                    // height={300}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -154,5 +174,5 @@ export function Hero() {
 
       <ProofBar />
     </section>
-  )
+  );
 }
