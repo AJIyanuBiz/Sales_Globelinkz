@@ -37,7 +37,7 @@ export function CTAButton({
   children,
   variant = "primary",
   className,
-  location = "unknown", // default fallback
+  location = "unknown",
 }: CTAButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -160,13 +160,13 @@ export function CTAButton({
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-9998"
             onClick={handleOverlayClick}
           />
 
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-9999 flex items-center justify-center p-4">
             <div
-              className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+              className="relative w-full max-w-md bg-green-100 rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-300"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -203,8 +203,8 @@ export function CTAButton({
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        placeholder="you@example.com"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                        placeholder="you@gmail.com"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent text-green-900"
                       />
                     </div>
 
@@ -222,8 +222,8 @@ export function CTAButton({
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        placeholder="John"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                        placeholder="Firstname"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent text-green-900"
                       />
                     </div>
 
@@ -241,8 +241,8 @@ export function CTAButton({
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        placeholder="Doe"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                        placeholder="Lastname"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent text-green-900"
                       />
                     </div>
 
@@ -260,8 +260,8 @@ export function CTAButton({
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
                         required
-                        placeholder="+234 000 000 0000"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                        placeholder="+234 XXX XXX XXXX"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent text-green-900"
                       />
                     </div>
 
@@ -280,7 +280,7 @@ export function CTAButton({
                         value={formData.country}
                         onChange={handleInputChange}
                         placeholder="Nigeria"
-                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent text-green-900"
                       />
                     </div>
 
